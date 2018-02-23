@@ -1,0 +1,12 @@
+.img-postit {
+    width: 10%;
+}
+
+.logo-title {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    margin: 0;
+    margin-top: 28px;
+    vertical-align: top;
+}
