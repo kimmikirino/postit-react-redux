@@ -19,11 +19,13 @@
     "css-loader": "^0.28.9",
     "file-loader": "^1.1.9",
     "style-loader": "^0.20.2",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
     "build": "babel js -d lib --watch",
-    "start": "webpack --config webpack.config.js --watch"
+    "a": "webpack --config webpack.config.js --watch",
+    "start": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",

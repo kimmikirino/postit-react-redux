@@ -3,10 +3,10 @@ import Section from '../section'
 import FormNotas from '../formNotas'
 import './sectionNotas.css'
 
-function montaFormNotas(posicao, listaNotas, adicionarNota, removerNota, editarFormulario) {
+function montaFormNotas(posicao, notaAtual, adicionarNota, removerNota, editarFormulario) {
     const props = {
         posicao,
-        notaAtual: listaNotas[posicao],
+        notaAtual: notaAtual,
         removerNota,
         adicionarNota,
         editarFormulario,
@@ -22,6 +22,7 @@ function SectionNotas({ listaNotas, adicionarNota, removerNota, editarFormulario
         montaFormNotas(posicao, notaAtual, adicionarNota, removerNota, editarFormulario)
     ))
 
+    //console.log(listaNotas)
     return <Section {...props}>{children}</Section>
 }
 

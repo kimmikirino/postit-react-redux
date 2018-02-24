@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { adicionarNota, removerNota, habilitarEdicao, alterarNota} from '../../actions';
+import { adicionarNota, removerNota, habilitarEdicao, alterarNota} from '../../action';
 import Page from './index'
 
-const mapStateToProps = state => { listaNotas: state.notas }
+const mapStateToProps = state => ({ listaNotas: state.notas })
 
 const mapDispatchToProps = dispatch => (
     {
@@ -26,3 +26,5 @@ const mapDispatchToProps = dispatch => (
 )
 
 const PageContainer = connect(mapStateToProps, mapDispatchToProps)(Page)
+
+export default PageContainer

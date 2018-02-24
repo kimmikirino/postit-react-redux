@@ -8,30 +8,27 @@ import {
 
 } from './action'
 
-import Nota from 'nota';
+import Nota from './nota';
 
 const estadoInicial = {
-    texto: '',
-    titulo: ''
+    notas: []
 };
 
 export default function postitApp(estadoAtual = estadoInicial, action) {
     switch (action.type) {
         case ADICIONAR_NOTA:
             const novaNota = new Nota(action.titulo, action.texto);
-            const estadoNovo = {
+            return {
                 notas: estadoAtual.notas.concat(novaNota)
             };
-            return estadoNovo;
         case REMOVER_NOTA:
-            const estadoNovo = {
+            return {
                 notas: estadoAtual.notas.filter((nota, posicao) => {
                     return posicao !== action.posicao
                 })
             };
-            return estadoNovo;
         case HABILITAR_EDICAO:
-            const estadoNovo = {
+            return {
                 notas: estadoAtual.notas.map((nota, index) => {
                     if (action.posicao === index) {
                         nota.editando = true;
@@ -39,18 +36,18 @@ export default function postitApp(estadoAtual = estadoInicial, action) {
                     return nota;
                 })
             };
-            return estadoNovo;
         case ALTERAR_NOTA:
-            const estadoNovo = {
+            return {
                 notas: estadoAtual.notas.map((nota, index) => {
                     if (action.posicao === index) {
-                        nota.titulo = action.titulo;
-                        nota.texto = action.texto;
+                        const novaNota = new Nota(action.titulo, action.texto, false);
+                        console.log(novaNota)
+                        return novaNota; 
+                    } else {
+                        return nota;
                     }
-                    return nota;
                 })
             };
-            return estadoNovo;
         default:
             return estadoInicial;
 
